@@ -40,10 +40,10 @@
       <% links.each do |name, link| %>
       <tr>
         <td>
-          <a href="%3C%=%20link%20%%3E?part=text%2Fhtml" target="_blank"><%= name.humanize %></a>
+          <a href="<%= link %>?part=text%2Fhtml" target="_blank"><%= name.humanize %></a>
         </td>
         <td>
-          <a href="%3C%=%20link%20%%3E?send_to_acid=1" target="iframe">Send to Acid</a>
+          <a href="<%= link %>?send_to_acid=1" target="iframe">Send to Acid</a>
         </td>
       </tr>
       <% end %>
