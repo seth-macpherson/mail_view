@@ -44,12 +44,19 @@ class MailView
           if part = find_part(mail, part_type)
             body = part.body
             body = body.decoded if body.respond_to?(:decoded)
+            
             ok body, part.content_type
           else
             not_found
           end
 
         # Otherwise, show our message headers & frame the body.
+        elsif request.params['send_to_acid']
+          log = Logger.new(STDOUT)
+          log.level = Logger::WARN
+          mail[:to] = 'smacpherson@qstream.com'
+          mail.deliver
+          ok "message sent"
         else
           part = find_preferred_part(mail, [format, 'text/html', 'text/plain'])
           ok email_template.render(Object.new, :name => name, :mail => mail, :part => part, :part_url => part_body_url(part))
