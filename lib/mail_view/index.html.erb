@@ -35,7 +35,8 @@
     <table cellspacing="0" cellpadding="5" border="thin" class="grid">
       <tr>
         <th>Mailer</th>
-        <th>Action</th>
+        <th>Email on Acid</th>
+        <th>Plain Text</th>
       </tr>
       <% links.each do |name, link| %>
       <tr>
@@ -43,7 +44,10 @@
           <a href="<%= link %>?part=text%2Fhtml" target="_blank"><%= name.humanize %></a>
         </td>
         <td>
-          <a href="<%= link %>?send_to_acid=1" target="iframe">Send to Acid</a>
+          <a href="<%= link %>?send_to_acid=1" target="iframe">Send</a>
+        </td>
+        <td>
+          <a href="<%= link %>?part=text%2Fplain" target="_blank">View</a>
         </td>
       </tr>
       <% end %>

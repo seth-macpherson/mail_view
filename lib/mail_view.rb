@@ -54,7 +54,7 @@ class MailView
         elsif request.params['send_to_acid']
           log = Logger.new(STDOUT)
           log.level = Logger::WARN
-          mail[:to] = 'smacpherson@qstream.com'
+          mail[:to] = 'qstream+runme@emailonacid.com'
           mail.deliver
           ok "message sent"
         else
